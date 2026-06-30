@@ -1,7 +1,7 @@
 # Lab Architecture
 
 ## Host Environment
-- Host machine: Windows PC, 16 GB RAM, running `VMware Workstation`
+- Host machine: Windows PC, 16 GB RAM, running `VMware Workstation Pro` (free personal use license)
 - VMs run in "scenes" — only the machines needed for the current ticket are powered on at once
 
 ## Virtual Machines
@@ -22,6 +22,8 @@ Role: the company's firewall, router, and VPN gateway. Sits at the network edge,
 Role: the company's security monitoring server. Collects logs and alerts from DC01 and WIN11-CLIENT — this is the SOC/security analyst skill track.
 
 ## Network Layout
+
+VM network adapter: **Host-only (VMnet1)** — VMware's default isolated network, shared with the host, not bridged to the internet.
 
 Internet
    |
