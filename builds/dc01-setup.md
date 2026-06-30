@@ -31,10 +31,17 @@ configuration.
   actively in use.
 
 ## Screenshots
-- `01-edition-picker.png` — Standard (Desktop Experience) selected over Datacenter
-- `02-custom-install.png` — Custom: Install Windows only (advanced)
-- `03-disk-partitioning.png` — auto-created partitions on the 60 GB disk
-- `04-server-manager-dashboard.png` — clean post-install desktop, before any role configuration
+![Edition picker](screenshots/edition-picker.png)
+*Selected Standard edition with Desktop Experience over Datacenter — realistic choice for a small-company DC.*
+
+![Custom install](screenshots/custom-install.png)
+*Custom: Install Windows only (advanced).*
+
+![Disk partitioning](screenshots/disk-partitioning.png)
+*Auto-created partitions on the 60 GB disk.*
+
+![Server Manager dashboard](screenshots/server-manager-dashboard.png)
+*Clean post-install desktop, before any role configuration — this is the baseline state.*
 
 ## Next Step
 Promote DC01 to a domain controller via Active Directory Domain Services (AD DS).
