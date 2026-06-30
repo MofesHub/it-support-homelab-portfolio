@@ -31,16 +31,16 @@ configuration.
   actively in use.
 
 ## Screenshots
-![Edition picker](screenshots/edition-picker.png)
+![Edition picker](dc01-setup/screenshots/edition-picker.png)
 *Selected Standard edition with Desktop Experience over Datacenter — realistic choice for a small-company DC.*
 
-![Custom install](screenshots/custom-install.png)
+![Custom install](dc01-setup/screenshots/custom-install.png)
 *Custom: Install Windows only (advanced).*
 
-![Disk partitioning](screenshots/disk-partitioning.png)
+![Disk partitioning](dc01-setup/screenshots/disk-partitioning.png)
 *Auto-created partitions on the 60 GB disk.*
 
-![Server Manager dashboard](screenshots/server-manager-dashboard.png)
+![Server Manager dashboard](dc01-setup/screenshots/server-manager-dashboard.png)
 *Clean post-install desktop, before any role configuration — this is the baseline state.*
 
 ## Next Step
