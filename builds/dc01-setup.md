@@ -43,5 +43,33 @@ configuration.
 ![Server Manager dashboard](dc01-setup/screenshots/server-manager-dashboard.png)
 *Clean post-install desktop, before any role configuration — this is the baseline state.*
 
+## License Status Check — July 1–2, 2026
+### Summary
+Checked the Windows Server 2022 Evaluation license clock before building further on top of `DC01`. Discovered the evaluation had never actually completed online activation, then diagnosed and fixed a network misconfiguration that was blocking it.
+
+### Findings
+- `slmgr /dlv` showed **License Status: Initial grace period**, only 10 days remaining, with rearm count untouched at 6/6 — meaning the evaluation had never gone through real online activation.
+- `slmgr /ato` failed with `0x80072EE7` (`DNS (Domain Name System)`/connectivity failure) — `DC01` had no route to Microsoft's activation servers, expected since it sits on host-only `VMnet1` with no internet path.
+- Added a second `NIC (Network Interface Card)` to the VM, set to `NAT (Network Address Translation)`, for temporary internet access. Retried activation and got `0xC004E028` repeatedly.
+- Diagnosed with `ping` and `nslookup` — both failed completely, ruling out "activation still processing" and pointing to a deeper connectivity gap.
+- Root cause: the **primary network adapter had drifted onto NAT instead of `VMnet1`**, so `DC01`'s main adapter was never properly reaching a gateway on the lab network — this, not the activation service, is what broke activation from the start.
+
+### Fix
+- Reconfigured the primary **Network Adapter** back to **Custom: VMnet1**.
+- Kept **Network Adapter 2** on **NAT**, dedicated to giving `DC01` temporary internet access for activation.
+
+### Status
+Pending final verification — retesting `ping` and activation with the corrected adapter config next session.
+
+### Screenshots
+![Initial grace period](dc01-setup/screenshots/license-initial-grace-period.png)
+*`slmgr /dlv` showing Initial grace period, 10 days remaining, rearm counts untouched at 6/6.*
+![DNS activation failure](dc01-setup/screenshots/activation-error-dns.png)
+*`slmgr /ato` failing with 0x80072EE7 — no internet path from host-only VMnet1.*
+![Activation pending error](dc01-setup/screenshots/activation-error-e028.png)
+*Repeated 0xC004E028 after adding a NAT adapter — misleading symptom; real cause was the adapter 1 misconfiguration below.*
+![Adapter misconfiguration found](dc01-setup/screenshots/network-adapter-nat-misconfig.png)
+*VM Settings showing the primary Network Adapter incorrectly set to NAT instead of VMnet1.*
+
 ## Next Step
 Promote DC01 to a domain controller via Active Directory Domain Services (AD DS).
