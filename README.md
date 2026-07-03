@@ -19,6 +19,17 @@ See [docs/lab-architecture.md](docs/lab-architecture.md)
 | UBUNTU-WAZUH | Security monitoring server | ⬜ Not started | — |
 
 ## Tickets Resolved
-| # | Ticket | Category | Status |
-|---|--------|----------|--------|
-| 001 | Account lockout | Identity & Access | ⬜ In Progress |
+
+| #   | Ticket                          | Category            | Status      |
+| --- | -------------------------------- | -------------------- | ----------- |
+| 000 | [DC01 license activation failure](tickets/ticket-000-dc01-license-activation-failure.md) | Server / Licensing / Networking | ✅ Resolved |
+| 001 | Account lockout                  | Identity & Access    | ⬜ In Progress |
+
+## Infrastructure Build Log
+
+| Component                  | What It Does                        | Status        | Details |
+| --------------------------- | ------------------------------------ | -------------- | ------- |
+| DC01 — Windows Server 2022 | Domain controller: AD DS, DNS, DHCP | ✅ Complete    | [builds/dc01-setup.md](...) · [builds/dc01-addc.md](...) · [builds/dc01-dhcp.md](...) |
+| WIN11-CLIENT — Windows 11  | Employee laptop, domain-joined      | ⬜ Not started | — |
+| PFSENSE                    | Firewall / router / VPN gateway     | ⬜ Not started | — |
+| UBUNTU-WAZUH               | Security monitoring server          | ⬜ Not started | — |
