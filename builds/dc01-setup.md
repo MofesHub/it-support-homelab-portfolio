@@ -72,22 +72,42 @@ misconfiguration that was blocking it.
 - Kept **Network Adapter 2** on **NAT**, dedicated to giving DC01 temporary
   internet access for activation.
 
-### Status
-Pending final verification — retesting `ping` and activation with the
-corrected adapter config next session.
+### Resolution
+Resolved. After correcting the adapter configuration, `ping` and `nslookup`
+succeeded, `slmgr /ato` returned **"Product activated successfully,"** and the
+license flipped from Initial grace period to a full 180-day evaluation.
 
-### Screenshots
+### Screenshots — Diagnosis
 ![Initial grace period](dc01-setup/screenshots/license-initial-grace-period.png)
-*`slmgr /dlv` showing Initial grace period, 10 days remaining, rearm counts untouched at 6/6.*
+*`slmgr /dlv` showing Initial grace period, 10 days remaining, rearm counts untouched at 6/6 — evaluation had never truly activated.*
 
 ![DNS activation failure](dc01-setup/screenshots/activation-error-dns.png)
 *`slmgr /ato` failing with 0x80072EE7 — no internet path from host-only VMnet1.*
 
-![Activation pending error](dc01-setup/screenshots/activation-error-e028.png)
-*Repeated 0xC004E028 after adding a NAT adapter — misleading symptom; real cause was the adapter 1 misconfiguration below.*
+![First E028 error](dc01-setup/screenshots/activation-error-e028-first.png)
+*First 0xC004E028 after adding a NAT adapter — activation reaching servers but failing.*
+
+![Repeated E028 error](dc01-setup/screenshots/activation-error-e028-repeated.png)
+*Same 0xC004E028 after three retries — confirmed it wasn't a transient "still processing" state.*
+
+![Ping failure before fix](dc01-setup/screenshots/ping-failure-before-fix.png)
+*`ipconfig` showing only Ethernet0 with no gateway; `ping 8.8.8.8` at 100% loss — a real connectivity gap.*
+
+![Nslookup failure before fix](dc01-setup/screenshots/nslookup-failure-before-fix.png)
+*`nslookup validation-v2.sls.microsoft.com` timing out — confirmed no DNS path, not just a slow activation server.*
 
 ![Adapter misconfiguration found](dc01-setup/screenshots/network-adapter-nat-misconfig.png)
-*VM Settings showing the primary Network Adapter incorrectly set to NAT instead of VMnet1.*
+*VM Settings showing BOTH network adapters set to NAT — the primary should have been on VMnet1. Root cause.*
+
+### Screenshots — Fix Verified
+![Two adapters after fix](dc01-setup/screenshots/network-fixed-two-adapters.png)
+*`ipconfig /all` after fix — Ethernet0 back on VMnet1 (192.168.199.10), Ethernet1 on NAT for internet.*
+
+![Ping success after fix](dc01-setup/screenshots/ping-success-after-fix.png)
+*Ethernet1 now has a gateway and DNS; `ping 8.8.8.8` at 0% loss.*
+
+![Activation success](dc01-setup/screenshots/activation-success.png)
+*`slmgr /ato` returning "Product activated successfully" — license now valid for 180 days.*
 
 ## Status
 This build (base OS install) was completed and followed by:
