@@ -36,10 +36,23 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
 - Confirmed clean boot into Windows 11 Setup with no "This PC can't run
   Windows 11" error, validating the TPM/Secure Boot configuration was done
   correctly on the first attempt.
+- Avoided the Microsoft-account-required OOBE path by choosing **Set up for
+  work or school > Sign-in options > Domain join instead** — creates a
+  genuine local account without needing actual domain connectivity or a
+  registry bypass. The account-creation screen ran through twice during this
+  flow: `localadmin` was created on the first pass, then `jsmith` on the
+  second after `localadmin` was rejected as already taken. Both are
+  intentionally-created local accounts, not a discovered rogue account.
+  Password for `localadmin` is known and retained.
+- VM lost power state once mid-build (host ran out of memory resuming from
+  suspend) — preserved the suspended state rather than discarding, freed host
+  RAM, and resumed successfully with no data loss.
 
 ## Screenshots
-*(To be added once post-install screenshots are in hand.)*
+![Desktop install complete](win11-client-setup/screenshots/desktop-install-complete.png)
+*Clean desktop after first login as jsmith — OS install fully complete.*
 
 ## Next Step
-Complete out-of-box setup, confirm clean boot to desktop, then join
-WIN11-CLIENT to the `homelab.local` domain.
+Reassign the network adapter from NAT to VMnet1 so WIN11-CLIENT can reach
+`DC01 (the company's main server)`, then join WIN11-CLIENT to the
+`homelab.local` domain.
