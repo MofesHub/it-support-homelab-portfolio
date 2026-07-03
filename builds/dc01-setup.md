@@ -46,7 +46,7 @@ configuration.
 This build (base OS install) was completed and followed by:
 1. Promotion to a domain controller via `AD DS (Active Directory Domain Services)`, with `DNS (Domain Name System)` and `DHCP (Dynamic Host Configuration Protocol)` configured (documented separately).
 2. A license activation failure, diagnosed and resolved — see
-   [`TICKET-001`](../tickets/ticket-001-dc01-license-activation-failure.md)
+   [`TICKET-000`](../tickets/ticket-000-dc01-license-activation-failure.md)
    for the full diagnostic writeup and screenshots.
 
 **Next up:** standing up `WIN11-CLIENT (an employee's laptop I'm troubleshooting)` and joining it to the domain.
