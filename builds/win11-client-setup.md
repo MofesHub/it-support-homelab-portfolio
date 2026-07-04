@@ -49,7 +49,6 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
 - VM lost power state once mid-build (host ran out of memory resuming from
   suspend) — preserved the suspended state rather than discarding, freed host
   RAM, and resumed successfully with no data loss.
-
 - Initial `VMnet1` connectivity test failed with an `APIPA (Automatic Private
   IP Addressing)` address (169.254.x.x) and 75% ping loss to DC01 — root
   cause was DC01 being suspended at the time, so no DHCP server was reachable
@@ -62,7 +61,10 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
 *Clean desktop after first login as jsmith — OS install fully complete.*
 
 ![APIPA before DC01 resumed](win11-client-setup/screenshots/network-apipa-before-fix.png)
-*Ethernet0 showing a 169.254.x.x APIPA address and ping loss to DC01 — DC01 was suspended, no DHCP server reachable.*
+*Ethernet0 showing a 169.254.x.x APIPA address — DC01 was suspended, no DHCP server reachable.*
+
+![Ping failure before fix](win11-client-setup/screenshots/client-ping-failure-before-fix.png)
+*ping to DC01 failing at 75% loss while ping 8.8.8.8 succeeds — isolated the failure to the VMnet1 side specifically.*
 
 ![Dual adapters after fix](win11-client-setup/screenshots/network-dual-adapters-fixed.png)
 *ipconfig /all after DC01 resumed and lease renewed — Ethernet0 on 192.168.199.50 via DC01's DHCP, Ethernet1 on NAT.*
