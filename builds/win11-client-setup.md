@@ -13,7 +13,9 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
 - 2 vCPU, 4 GB RAM, 64 GB disk (NVMe, split into multiple files)
 - Firmware: UEFI with Secure Boot enabled
 - Virtual TPM 2.0 added (TPM data encrypted, password stored in Credential Manager)
-- Network adapter: NAT (temporary — will be reassigned once domain-join network segment is confirmed)
+- Dual-adapter network config, matching DC01's pattern: adapter 1 on VMnet1
+  (192.168.199.50, reaches DC01 and the domain), adapter 2 on NAT (internet
+  access for activation, updates, and future Microsoft 365 enrollment)
 
 ## Build Notes
 - Selected **Custom (advanced)** VM creation and **I will install the
@@ -48,11 +50,25 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
   suspend) — preserved the suspended state rather than discarding, freed host
   RAM, and resumed successfully with no data loss.
 
+- Initial `VMnet1` connectivity test failed with an `APIPA (Automatic Private
+  IP Addressing)` address (169.254.x.x) and 75% ping loss to DC01 — root
+  cause was DC01 being suspended at the time, so no DHCP server was reachable
+  on VMnet1. Resolved by resuming DC01 and running `ipconfig /release` /
+  `ipconfig /renew` on WIN11-CLIENT; confirmed with a clean 192.168.199.x
+  lease and 0% ping loss to DC01 afterward.
+
 ## Screenshots
 ![Desktop install complete](win11-client-setup/screenshots/desktop-install-complete.png)
 *Clean desktop after first login as jsmith — OS install fully complete.*
 
+![APIPA before DC01 resumed](win11-client-setup/screenshots/network-apipa-before-fix.png)
+*Ethernet0 showing a 169.254.x.x APIPA address and ping loss to DC01 — DC01 was suspended, no DHCP server reachable.*
+
+![Dual adapters after fix](win11-client-setup/screenshots/network-dual-adapters-fixed.png)
+*ipconfig /all after DC01 resumed and lease renewed — Ethernet0 on 192.168.199.50 via DC01's DHCP, Ethernet1 on NAT.*
+
+![Ping success to DC01](win11-client-setup/screenshots/ping-success-dc01.png)
+*ping 192.168.199.10 at 0% loss, confirming WIN11-CLIENT can reach DC01.*
+
 ## Next Step
-Reassign the network adapter from NAT to VMnet1 so WIN11-CLIENT can reach
-`DC01 (the company's main server)`, then join WIN11-CLIENT to the
-`homelab.local` domain.
+Join WIN11-CLIENT to the `homelab.local` domain.
