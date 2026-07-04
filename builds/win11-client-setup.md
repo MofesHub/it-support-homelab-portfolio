@@ -72,5 +72,12 @@ actually deploy Windows 11, rather than bypassing the hardware checks.
 ![Ping success to DC01](win11-client-setup/screenshots/ping-success-dc01.png)
 *ping 192.168.199.10 at 0% loss, confirming WIN11-CLIENT can reach DC01.*
 
+![Domain login confirmed](win11-client-setup/screenshots/domain-login-confirmed.png)
+*Logged in as the domain Administrator account post-join — proof the domain join actually works, not just that it was configured.*
+
 ## Next Step
-Join WIN11-CLIENT to the `homelab.local` domain.
+WIN11-CLIENT build is complete: OS installed, dual-adapter networking
+confirmed, domain-joined to `homelab.local`, and domain login verified. No
+domain user account matching `jsmith` exists yet — that gets created as part
+of `TICKET-001` (Account lockout), the natural point to build and manage AD
+user accounts rather than as a separate throwaway step here.
