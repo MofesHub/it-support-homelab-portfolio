@@ -23,5 +23,5 @@ See [docs/lab-architecture.md](docs/lab-architecture.md)
 | --------------------------- | ------------------------------------ | -------------- | ------- |
 | DC01 — Windows Server 2022 | Domain controller: AD DS, DNS, DHCP | ✅ Complete     | [builds/dc01-setup.md](builds/dc01-setup.md) · [builds/dc01-addc.md](builds/dc01-addc.md) · [builds/dc01-dhcp.md](builds/dc01-dhcp.md) |
 | WIN11-CLIENT — Windows 11  | Employee laptop, domain-joined      | ✅ Complete    | [builds/win11-client-setup.md](builds/win11-client-setup.md) |
-| PFSENSE                    | Firewall / router / VPN gateway     | ⬜ Not started | — |
-| UBUNTU-WAZUH               | Security monitoring server          | ⬜ Not started | — |
+| PFSENSE                    | Firewall / router / VPN gateway     | ⬜ In Progress | — |
+| UBUNTU-WAZUH               | Security monitoring server          | ⬜ In Progress | — |
