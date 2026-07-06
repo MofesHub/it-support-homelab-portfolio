@@ -11,7 +11,7 @@ and resolve them on a structured path, and document the full process here.
 | #   | Ticket                          | Category                        | Status         |
 | --- | -------------------------------- | -------------------------------- | -------------- |
 | 000 | [DC01 license activation failure](tickets/ticket-000-dc01-license-activation-failure.md) | Server / Licensing / Networking | ✅ Resolved     |
-| 001 | Account lockout                  | Identity & Access                | ⬜ In Progress |
+| 001 | [Account lockout](tickets/ticket-001-jsmith-account-lockout.md) | Identity & Access | ✅ Resolved |
 
 ## Lab Architecture
 
