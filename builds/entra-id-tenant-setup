@@ -1,0 +1,2 @@
+Set Usage location (Canada) on Homelab Admin's profile — required before any license can be assigned. 
+Left the account unlicensed, since authoring Conditional Access policies only requires the Global Administrator role, not a license.
