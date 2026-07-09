@@ -73,6 +73,12 @@ misconfiguration.
 ![jsmith successful sign-in after MFA registration](ticket-002-screenshots/jsmith-signin-success-after-mfa-registration.png)
 *myaccount.microsoft.com showing "Welcome back, John Smith" after completing MFA registration — confirms the fix.*
 
+![Jira ticket description](ticket-002-screenshots/jira-ticket-002-description.png)
+*HIS-2 in Jira Service Management, showing the incident description and Resolved status.*
+
+![Jira ticket diagnostic comment](ticket-002-screenshots/jira-ticket-002-diagnostic-comment.png)
+*Internal comment on HIS-2 documenting the full diagnostic and resolution steps.*
+
 ## Tools Used
 `Microsoft Entra admin center`, `Conditional Access`, `Microsoft
 Authenticator`, `Jira Service Management`, `myaccount.microsoft.com`.
