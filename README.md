@@ -12,6 +12,8 @@ and resolve them on a structured path, and document the full process here.
 | 003 | [WIN11-CLIENT high CPU — remote support](tickets/ticket-003-win11-client-high-cpu-remote-support.md) | Endpoint Performance / Desktop Support | ✅ Resolved |
 | 004 | [CompanyShare unreachable — SMB/GPO diagnostic](tickets/ticket-004-companyshare-smb-gpo-diagnostic.md) | Files & Permissions / Group Policy | ✅ Resolved |
 | 005 | [jsmith loses S: drive access — group membership](tickets/ticket-005-jsmith-drive-access-group-membership.md) | Files & Permissions | ✅ Resolved |
+| 006 | [jsmith deleted file — Volume Shadow Copy recovery](tickets/ticket-006-jsmith-deleted-file-shadow-copy-recovery.md) | Backup & Recovery | ✅ Resolved |
+| 009 | [jsmith can't print — Print Spooler stopped](tickets/ticket-009-jsmith-cant-print-spooler-stopped.md) | Print | ✅ Resolved |
 ## Lab Architecture
 See [docs/lab-architecture.md](docs/lab-architecture.md)
 ## Infrastructure Build Log
