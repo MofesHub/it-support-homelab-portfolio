@@ -64,6 +64,11 @@ that were diagnosed and resolved — documented as a break/fix ticket in
   (Domain Name System)` resolving.
 
 ## Screenshots
+![WAN interface assignment](pfsense-screenshots/wan-interface-assignment.png)
+*Installer interface picker — NICs appear as `em0`/`em1` under the
+VMware `em` driver. `em0` (first adapter, NAT) = `WAN`; `em1` (second
+adapter, VMnet1) = `LAN`.*
+
 ![Console WAN and LAN assigned](pfsense-screenshots/console-wan-lan-assigned.png)
 *pfSense console showing `WAN` and `LAN` interfaces assigned and
 addressed.*
