@@ -1,8 +1,11 @@
 # IT Support Home Lab Portfolio
+
 A self-built lab simulating a small company's IT environment — `DC01` (domain
 controller), `WIN11-CLIENT` (employee laptop), `PFSENSE` (firewall/router), `UBUNTU-WAZUH` (security monitoring), plus a Microsoft 365 cloud tenant.
+
 I deliberately break common help-desk issues, log them as tickets, diagnose
 and resolve them on a structured path, and document the full process here.
+
 ## Tickets Resolved
 | #   | Ticket                          | Category                        | Status         |
 | --- | -------------------------------- | -------------------------------- | -------------- |
@@ -14,8 +17,11 @@ and resolve them on a structured path, and document the full process here.
 | 005 | [jsmith loses S: drive access — group membership](tickets/ticket-005-jsmith-drive-access-group-membership.md) | Files & Permissions | ✅ Resolved |
 | 006 | [jsmith deleted file — Volume Shadow Copy recovery](tickets/ticket-006-jsmith-deleted-file-shadow-copy-recovery.md) | Backup & Recovery | ✅ Resolved |
 | 009 | [jsmith can't print — Print Spooler stopped](tickets/ticket-009-jsmith-cant-print-spooler-stopped.md) | Print | ✅ Resolved |
+| 010 | [DC01 no internet after gateway cutover](tickets/ticket-010-dc01-no-internet-after-gateway-cutover.md) | Networking / Routing | ✅ Resolved |
+
 ## Lab Architecture
 See [docs/lab-architecture.md](docs/lab-architecture.md)
+
 ## Infrastructure Build Log
 | Component                  | What It Does                        | Status         | Details |
 | --------------------------- | ------------------------------------ | -------------- | ------- |
@@ -23,5 +29,5 @@ See [docs/lab-architecture.md](docs/lab-architecture.md)
 | WIN11-CLIENT — Windows 11  | Employee laptop, domain-joined      | ✅ Complete    | [builds/win11-client-setup.md](builds/win11-client-setup.md) |
 | Entra ID tenant             | Cloud identity, Conditional Access, MFA | ✅ Complete | [builds/entra-id-tenant-setup.md](builds/entra-id-tenant-setup.md) |
 | CompanyShare                | Shared drive: Staff group, NTFS permissions, GPO drive mapping | ✅ Complete | [builds/companyshare-setup.md](builds/companyshare-setup.md) |
-| PFSENSE                    | Firewall / router / VPN gateway     | ⬜ Not started | — |
+| PFSENSE                    | Firewall / router / VPN gateway     | ✅ Complete | [builds/pfsense-setup.md](builds/pfsense-setup.md) |
 | UBUNTU-WAZUH               | Security monitoring server          | ⬜ Not started | — |
