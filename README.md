@@ -20,6 +20,7 @@ and resolve them on a structured path, and document the full process here.
 | 010 | [DC01 no internet after gateway cutover](tickets/ticket-010-dc01-no-internet-after-gateway-cutover.md) | Networking / Routing | ✅ Resolved |
 | 011 | [VMnet1 host adapter IP conflict with pfSense LAN gateway](tickets/ticket-011-vmnet1-pfsense-ip-conflict.md) | Networking / Virtual Infrastructure | ✅ Resolved |
 | 012 | [VPN won't connect — firewall rule + WAN DHCP lease loss](tickets/ticket-012-vpn-wont-connect-firewall-rule-wan-dhcp.md) | Networking / Remote Access / Firewall | ✅ Resolved |
+| 013 | [Can't load websites — DNS resolution failure via LAN firewall rule](tickets/ticket-013-dns-resolution-failure-lan-firewall-rule.md) | Networking / DNS / Firewall | ✅ Resolved |
 
 
 ## Lab Architecture
