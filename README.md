@@ -18,6 +18,9 @@ and resolve them on a structured path, and document the full process here.
 | 006 | [jsmith deleted file — Volume Shadow Copy recovery](tickets/ticket-006-jsmith-deleted-file-shadow-copy-recovery.md) | Backup & Recovery | ✅ Resolved |
 | 009 | [jsmith can't print — Print Spooler stopped](tickets/ticket-009-jsmith-cant-print-spooler-stopped.md) | Print | ✅ Resolved |
 | 010 | [DC01 no internet after gateway cutover](tickets/ticket-010-dc01-no-internet-after-gateway-cutover.md) | Networking / Routing | ✅ Resolved |
+| 011 | [VMnet1 host adapter IP conflict with pfSense LAN gateway](tickets/ticket-011-vmnet1-pfsense-ip-conflict.md) | Networking / Virtual Infrastructure | ✅ Resolved |
+| 012 | [VPN won't connect — firewall rule + WAN DHCP lease loss](tickets/ticket-012-vpn-wont-connect-firewall-rule-wan-dhcp.md) | Networking / Remote Access / Firewall | ✅ Resolved |
+
 
 ## Lab Architecture
 See [docs/lab-architecture.md](docs/lab-architecture.md)
@@ -29,5 +32,5 @@ See [docs/lab-architecture.md](docs/lab-architecture.md)
 | WIN11-CLIENT — Windows 11  | Employee laptop, domain-joined      | ✅ Complete    | [builds/win11-client-setup.md](builds/win11-client-setup.md) |
 | Entra ID tenant             | Cloud identity, Conditional Access, MFA | ✅ Complete | [builds/entra-id-tenant-setup.md](builds/entra-id-tenant-setup.md) |
 | CompanyShare                | Shared drive: Staff group, NTFS permissions, GPO drive mapping | ✅ Complete | [builds/companyshare-setup.md](builds/companyshare-setup.md) |
-| PFSENSE                    | Firewall / router / VPN gateway     | ✅ Complete | [builds/pfsense-setup.md](builds/pfsense-setup.md) |
+| PFSENSE                    | Firewall / router / VPN gateway     | ✅ Complete | [builds/pfsense-setup.md](builds/pfsense-setup.md) · [builds/pfsense-openvpn-setup.md](builds/pfsense-openvpn-setup.md) |
 | UBUNTU-WAZUH               | Security monitoring server          | ⬜ Not started | — |
